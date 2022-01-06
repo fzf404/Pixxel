@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.color-circle{
+  @apply mx-2 w-10 h-10 inline-block rounded-full shadow-md shadow-gray-400 ring-offset-4
+}
