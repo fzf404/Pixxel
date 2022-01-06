@@ -1,15 +1,13 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-03 15:54:37
- * @LastEditTime: 2022-01-06 16:03:17
+ * @LastEditTime: 2022-01-06 18:27:53
  * @Description: 画布组件
  */
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 
-const Canvas = ({ canvasConfig, brushColor, paintInfo }) => {
-  const canvasRef = useRef(null)
-
+const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
   // 获得绘制位置
   const getPosition = (event) => {
     const canvas = canvasRef.current
@@ -99,7 +97,7 @@ const Canvas = ({ canvasConfig, brushColor, paintInfo }) => {
   }
   // canvas 初始化
   useEffect(() => {
-    console.log("object")
+    // console.log('Cnavas Init')
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
 

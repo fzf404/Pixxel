@@ -1,11 +1,11 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-05 11:40:24
- * @LastEditTime: 2022-01-06 14:30:35
+ * @LastEditTime: 2022-01-06 17:55:45
  * @Description: 颜色选择器
  */
 
-import { ColorPicker } from './picker'
+import ColorPicker from './picker'
 
 const Color = ({ brushColor, setBrushColor }) => {
   const colorList = ['#f87171', '#fb923c', '#facc15', '#4ade80', '#60a5fa', '#c084fc']

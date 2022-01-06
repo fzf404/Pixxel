@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-05 20:41:37
- * @LastEditTime: 2022-01-06 16:39:37
+ * @LastEditTime: 2022-01-06 20:17:19
  * @Description: 颜色选择器
  */
 
@@ -9,8 +9,7 @@ import { useState } from 'react'
 import { SketchPicker } from 'react-color'
 
 import styles from './picker.module.css'
-
-export const ColorPicker = ({ setBrushColor }) => {
+const ColorPicker = ({ setBrushColor }) => {
   const [state, setState] = useState({
     displayColorPicker: false,
     history: [], // 颜色历史
@@ -27,7 +26,7 @@ export const ColorPicker = ({ setBrushColor }) => {
   }
 
   const handleClose = () => {
-    const pick = `rgba(${state.color.r}, ${state.color.g}, ${state.color.b}, ${state.color.a})`
+    const pick = `rgba(${state.color.r},${state.color.g},${state.color.b},${state.color.a})`
     if (!state.history.includes(pick)) {
       // 增加历史记录
       state.history.push(pick)
@@ -61,3 +60,5 @@ export const ColorPicker = ({ setBrushColor }) => {
     </>
   )
 }
+
+export default ColorPicker

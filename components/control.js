@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-05 11:45:30
- * @LastEditTime: 2022-01-05 22:48:41
+ * @LastEditTime: 2022-01-06 18:03:06
  * @Description: 控制器
  */
 
@@ -41,10 +41,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
   }
   return (
     <>
-      <nav className="mx-2 relative inline-flex rounded-full shadow-sm">
+      <nav className="inline-flex rounded-full shadow-md">
         <button
           onClick={reduceWidth}
-          className="relative inline-flex items-center px-2 py-2 rounded-l-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-l-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -58,12 +58,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
             />
           </svg>
         </button>
-        <p className="bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-          画布宽度
-        </p>
+        <p className="btn bg-indigo-50 border-indigo-500 text-indigo-600">画布宽度</p>
         <button
           onClick={increaseWidth}
-          className="relative inline-flex items-center px-2 py-2 rounded-r-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-r-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -78,10 +76,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
           </svg>
         </button>
       </nav>
-      <nav className="relative mx-2 inline-flex rounded-full shadow-sm">
+      <nav className="inline-flex rounded-full shadow-md">
         <button
           onClick={reduceGridWidth}
-          className="relative inline-flex items-center px-2 py-2 rounded-l-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-l-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -95,12 +93,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
             />
           </svg>
         </button>
-        <p className="bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-          网格大小
-        </p>
+        <p className="bg-indigo-50 border-indigo-500 text-indigo-600 btn">网格大小</p>
         <button
           onClick={increaseGridWidth}
-          className="relative inline-flex items-center px-2 py-2 rounded-r-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-r-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -115,10 +111,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
           </svg>
         </button>
       </nav>
-      <nav className="relative mx-2 inline-flex rounded-full shadow-sm">
+      <nav className="inline-flex rounded-full shadow-md">
         <button
           onClick={reduceHeight}
-          className="relative inline-flex items-center px-2 py-2 rounded-l-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-l-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -132,12 +128,10 @@ const Control = ({ canvasConfig, setCanvasConfig }) => {
             />
           </svg>
         </button>
-        <p className=" bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-          画布高度
-        </p>
+        <p className=" bg-indigo-50 border-indigo-500 text-indigo-600 btn">画布高度</p>
         <button
           onClick={increaseHeight}
-          className="relative inline-flex items-center px-2 py-2 rounded-r-full border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          className="btn-sm rounded-r-full border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
           <svg
             className="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
