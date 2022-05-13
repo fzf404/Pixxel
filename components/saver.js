@@ -1,13 +1,18 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-06 17:16:48
- * @LastEditTime: 2022-01-06 21:21:48
+ * @LastEditTime: 2022-05-13 16:19:55
  * @Description: description
  */
 
 import { saveAs } from 'file-saver'
 
-const Menu = ({ canvasRef, canvasConfig, setCanvasConfig, paintInfo, setPaintInfo }) => {
+import ImageSVG from '../assets/image.svg'
+import SaveSVG from '../assets/save.svg'
+import LoadSVG from '../assets/load.svg'
+import GithubSVG from '../assets/github.svg'
+
+const Saver = ({ canvasRef, canvasConfig, setCanvasConfig, paintInfo, setPaintInfo }) => {
   // 保存为 .px 文件
   const handleSavePx = () => {
     const pxData = {
@@ -48,21 +53,31 @@ const Menu = ({ canvasRef, canvasConfig, setCanvasConfig, paintInfo, setPaintInf
   return (
     <>
       <input id="input" type="file" accept=".px" className="hidden" onChange={handleLoadPx}></input>
-      <button onClick={handleSavePx} className="btn-round border-gray-300 text-white bg-indigo-600 hover:bg-indigo-700">
-        保存(.px)
-      </button>
-      <button onClick={handleSavePng} className="btn-round border-gray-300 text-white bg-green-600 hover:bg-green-700 ">
-        保存(.png)
-      </button>
       <button
         onClick={() => {
           document.getElementById('input').click()
         }}
-        className="btn-round border-gray-300 text-white bg-amber-600 hover:bg-amber-700 ">
+        className="btn-round border-gray-300 text-white bg-indigo-600 hover:bg-indigo-700 px-1">
+        <LoadSVG className="h-5 w-5 mr-1" />
         载入(.px)
       </button>
+
+      <button onClick={handleSavePng} className="btn-round border-gray-300 text-white bg-green-600 hover:bg-green-700 ">
+        <ImageSVG className="h-5 w-5 mr-1" />
+        保存(.png)
+      </button>
+      <button onClick={handleSavePx} className="btn-round border-gray-300 text-white bg-amber-600 hover:bg-amber-700">
+        <SaveSVG className="h-5 w-5 mr-1" />
+        保存(.px)
+      </button>
+      <a
+        href="https://github.com/fzf404/Pixxel"
+        target="_blank"
+        className="btn-round border-gray-300 text-white bg-gray-600 hover:bg-gray-700 ">
+        <GithubSVG className="h-5 w-5" />
+      </a>
     </>
   )
 }
 
-export default Menu
+export default Saver

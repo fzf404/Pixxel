@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-05 20:41:37
- * @LastEditTime: 2022-01-06 20:17:19
+ * @LastEditTime: 2022-05-13 15:09:09
  * @Description: 颜色选择器
  */
 
@@ -21,10 +21,12 @@ const ColorPicker = ({ setBrushColor }) => {
     },
   })
 
+  // 展示颜色选择器
   const handleClick = () => {
     setState({ ...state, displayColorPicker: !state.displayColorPicker })
   }
 
+  // 关闭颜色选择器
   const handleClose = () => {
     const pick = `rgba(${state.color.r},${state.color.g},${state.color.b},${state.color.a})`
     if (!state.history.includes(pick)) {
@@ -37,6 +39,7 @@ const ColorPicker = ({ setBrushColor }) => {
     setState({ ...state, displayColorPicker: false })
   }
 
+  // 颜色该百年
   const handleChange = (color) => {
     setState({
       ...state,

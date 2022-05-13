@@ -1,9 +1,9 @@
 import Canvas from '../components/canvas'
 import Color from '../components/color'
 import Control from '../components/control'
-import Menu from '../components/menu'
+import Saver from '../components/saver'
 import { useState, useEffect, useRef } from 'react'
-import Layout from '../components/layout'
+import Layout from './layout'
 
 export default function Index() {
   // 笔刷颜色
@@ -33,7 +33,7 @@ export default function Index() {
     <Layout>
       {/* 控制器 */}
       <div className="mt-4 space-x-4">
-        <Control canvasConfig={canvasConfig} setCanvasConfig={setCanvasConfig}  />
+        <Control canvasConfig={canvasConfig} setCanvasConfig={setCanvasConfig} />
       </div>
       {/* 颜色选择器 */}
       <div className="">
@@ -41,11 +41,24 @@ export default function Index() {
       </div>
       {/* 画布 */}
       <div className="">
-        <Canvas width="0" height="0" canvasRef={canvasRef} canvasConfig={canvasConfig} brushColor={brushColor} paintInfo={paintInfo}/>
+        <Canvas
+          width="0"
+          height="0"
+          canvasRef={canvasRef}
+          canvasConfig={canvasConfig}
+          brushColor={brushColor}
+          paintInfo={paintInfo}
+        />
       </div>
       {/* 保存菜单 */}
-      <div className="space-x-4 space-y-2">
-        <Menu canvasRef={canvasRef} canvasConfig={canvasConfig} setCanvasConfig={setCanvasConfig} paintInfo={paintInfo} setPaintInfo={setPaintInfo} />
+      <div className="space-x-2 space-y-2">
+        <Saver
+          canvasRef={canvasRef}
+          canvasConfig={canvasConfig}
+          setCanvasConfig={setCanvasConfig}
+          paintInfo={paintInfo}
+          setPaintInfo={setPaintInfo}
+        />
       </div>
     </Layout>
   )

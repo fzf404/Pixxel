@@ -1,21 +1,29 @@
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.color-circle{
-  @apply relative inline-flex items-center justify-center mx-2 w-10 h-10 rounded-full shadow-md shadow-gray-400 ring-offset-4
+
+.color-circle {
+  @apply relative inline-flex items-center justify-center mx-2 w-10 h-10 rounded-full shadow-md shadow-gray-400 ring-offset-4;
 }
 
-.btn{
-  @apply relative inline-flex items-center px-4 py-2 border text-sm font-medium
+.btn {
+  @apply relative inline-flex items-center px-4 py-2 border text-sm font-medium;
 }
 
-.btn-sm{
-  @apply relative inline-flex items-center p-2 border text-sm font-medium
-  
+.btn-sm {
+  @apply relative inline-flex items-center p-2 border text-sm font-medium;
 }
 
-.btn-round{
-  @apply btn rounded-lg shadow-lg
-
+.btn-round {
+  @apply btn rounded-lg shadow-lg ;
 }
