@@ -1,13 +1,71 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-03 15:54:37
- * @LastEditTime: 2022-01-06 18:27:53
+ * @LastEditTime: 2022-05-13 15:18:55
  * @Description: 画布组件
  */
 
 import React, { useEffect } from 'react'
 
 const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
+  // 鼠标事件处理
+  useEffect(() => {
+    const canvas = canvasRef.current
+    // 鼠标左键点击事件处理
+    canvas.addEventListener('click', handlePaint)
+    // 鼠标右键点击事件处理
+    canvas.addEventListener('contextmenu', handleClear)
+
+    // 鼠标按下事件处理
+    canvas.addEventListener('mousedown', onMouseDown)
+    canvas.addEventListener('touchstart', onMouseDown)
+
+    // 鼠标抬起事件处理
+    canvas.addEventListener('mouseup', onMouseUp)
+    canvas.addEventListener('mouseleave', onMouseUp)
+    canvas.addEventListener('touchend', onMouseUp)
+
+    // 解除事件监听器
+    return () => {
+      canvas.removeEventListener('click', handlePaint)
+
+      canvas.removeEventListener('mousedown', onMouseDown)
+      canvas.removeEventListener('touchstart', onMouseDown)
+
+      canvas.removeEventListener('mouseup', onMouseUp)
+      canvas.removeEventListener('mouseleave', onMouseUp)
+      canvas.removeEventListener('touchend', onMouseUp)
+    }
+  }, [brushColor, canvasConfig])
+
+  // 鼠标按下
+  const onMouseDown = (event) => {
+    const canvas = canvasRef.current
+
+    if (event.button === 0) {
+      canvas.addEventListener('mousemove', handlePaint)
+      canvas.addEventListener('touchmove', handlePaint)
+    } else if (event.button === 2) {
+      canvas.addEventListener('mousemove', handleClear)
+      canvas.addEventListener('touchmove', handleClear)
+    } else {
+      canvas.addEventListener('mousemove', handlePaint)
+      canvas.addEventListener('touchmove', handlePaint)
+    }
+  }
+
+  // 鼠标抬起
+  const onMouseUp = (event) => {
+    const canvas = canvasRef.current
+    if (event.button === 0) {
+      canvas.removeEventListener('mousemove', handlePaint)
+      canvas.removeEventListener('touchmove', handlePaint)
+    } else {
+      canvas.removeEventListener('mousemove', handleClear)
+      canvas.removeEventListener('touchmove', handleClear)
+    }
+  }
+
   // 获得绘制位置
   const getPosition = (event) => {
     const canvas = canvasRef.current
@@ -24,32 +82,12 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
     }
   }
 
-  // 开始绘画
-  const startPaint = () => {
-    const canvas = canvasRef.current
-    canvas.addEventListener('mousemove', handlePaint)
-    canvas.addEventListener('touchmove', handlePaint)
-  }
-
-  // 开始擦除
-  const startClear = () => {
-    const canvas = canvasRef.current
-    canvas.addEventListener('mousemove', handleClear)
-    canvas.addEventListener('touchmove', handleClear)
-  }
-
-  // 移除监听
-  const stopPaint = () => {
-    const canvas = canvasRef.current
-    canvas.removeEventListener('mousemove', handleClear)
-    canvas.removeEventListener('mousemove', handlePaint)
-    canvas.removeEventListener('touchmove', handleClear)
-    canvas.removeEventListener('touchmove', handlePaint)
-  }
-
   // 绘画事件处理
   const handlePaint = (event) => {
     event.preventDefault()
+
+    // console.log('handlePaint')
+
     const pixelPos = getPosition(event)
     // 获得网格位置
     const pixelX = Math.floor(pixelPos.x / canvasConfig.gridWidth)
@@ -61,14 +99,17 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
       paintInfo.set(pixelXY, brushColor)
       // 绘制像素
       drawPixel(pixelX, pixelY, brushColor)
+
+      // console.log('paintd')
     }
   }
 
   // 擦除事件处理
   const handleClear = (event) => {
     event.preventDefault()
-    stopPaint() // 移除监听
-    startClear() // 开始擦除
+
+    console.log('handleClear')
+
     const pixelPos = getPosition(event)
     // 获得网格位置
     const pixelX = Math.floor(pixelPos.x / canvasConfig.gridWidth)
@@ -79,6 +120,8 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
       paintInfo.delete(pixelX * 10000 + pixelY, brushColor)
       // 清空像素
       drawPixel(pixelX, pixelY, canvasConfig.bgColor)
+
+      console.log('cleared')
     }
   }
 
@@ -134,40 +177,6 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
       drawPixel(Math.floor(pos / 10000), pos % 10000, color)
     })
   }, [canvasConfig])
-
-  // 鼠标事件处理
-  useEffect(() => {
-    const canvas = canvasRef.current
-    // 按下事件处理
-    canvas.addEventListener('mousedown', startPaint)
-    canvas.addEventListener('touchstart', startPaint)
-
-    // 抬起事件处理
-    canvas.addEventListener('mouseup', stopPaint)
-    canvas.addEventListener('mouseleave', stopPaint)
-    canvas.addEventListener('touchend', stopPaint)
-
-    // 解除事件监听器
-    return () => {
-      canvas.removeEventListener('mousedown', startPaint)
-      canvas.removeEventListener('touchstart', startPaint)
-
-      canvas.removeEventListener('mouseup', stopPaint)
-      canvas.removeEventListener('mouseleave', stopPaint)
-      canvas.removeEventListener('touchend', stopPaint)
-    }
-  }, [brushColor, canvasConfig])
-
-  // 点击事件监听
-  useEffect(() => {
-    const canvas = canvasRef.current
-    canvas.addEventListener('click', handlePaint)
-    canvas.addEventListener('contextmenu', handleClear)
-    return () => {
-      canvas.removeEventListener('click', handlePaint)
-      canvas.removeEventListener('contextmenu', handleClear)
-    }
-  }, [brushColor, canvasConfig])
 
   return <canvas ref={canvasRef} className="border-0 rounded-lg shadow-lg" />
 }
