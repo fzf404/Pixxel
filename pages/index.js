@@ -43,6 +43,7 @@ export default function Index() {
       <div className="">
         <Canvas width="0" height="0" canvasRef={canvasRef} canvasConfig={canvasConfig} brushColor={brushColor} paintInfo={paintInfo}/>
       </div>
+      {/* 保存菜单 */}
       <div className="space-x-4 space-y-2">
         <Menu canvasRef={canvasRef} canvasConfig={canvasConfig} setCanvasConfig={setCanvasConfig} paintInfo={paintInfo} setPaintInfo={setPaintInfo} />
       </div>

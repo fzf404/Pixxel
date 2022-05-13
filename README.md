@@ -4,13 +4,15 @@
 > 
 > 使用 React、Next.js、Tailwindcss 开发
 > 
-> [体验地址](https://px.fzf404.top/)
+> [https://px.fzf404.top/](https://px.fzf404.top/)
+> 
+> [https://fzf404.github.io/Pixxel/](https://fzf404.github.io/Pixxel/)
 
 ## 🚀 更新记录
 
 > 如需要更多功能欢迎来提 issue ~
 
-- [x] 基本绘画/擦除
+- [x] 基本绘画(鼠标左键)/擦除(鼠标右键)
 - [x] 颜色选择
 - [x] 动态调整画布尺寸
 - [x] 移动端适配

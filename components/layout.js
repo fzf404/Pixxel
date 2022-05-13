@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-06 14:19:45
- * @LastEditTime: 2022-01-06 21:35:47
+ * @LastEditTime: 2022-05-13 13:54:26
  * @Description: 基础框架
  */
 
@@ -15,10 +15,7 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=0.6" />
         <title>Pixxel</title>
       </Head>
-      <GithubCorner
-        href="https://github.com/fzf404/Pixxel"
-        bannerColor="#64748b"
-      />
+      <GithubCorner href="https://github.com/fzf404/Pixxel" bannerColor="#64748b" />
       {children}
     </div>
   )
