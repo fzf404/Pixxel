@@ -8,6 +8,8 @@
 > 
 > [https://fzf404.github.io/Pixxel/](https://fzf404.github.io/Pixxel/)
 
+![show](show.jpeg)
+
 ## 🚀 更新记录
 
 > 如需要更多功能欢迎来提 issue ~
