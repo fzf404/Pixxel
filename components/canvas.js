@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-03 15:54:37
- * @LastEditTime: 2022-05-21 21:29:53
+ * @LastEditTime: 2022-05-21 22:26:40
  * @Description: 画布组件
  */
 
@@ -22,7 +22,7 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
 
     // 鼠标抬起事件处理
     canvas.addEventListener('mouseup', onMouseUp)
-    canvas.addEventListener('mouseleave', onMouseUp)
+    canvas.addEventListener('mouseleave', onMouseLeave)
     canvas.addEventListener('touchend', onMouseUp)
 
     // 解除事件监听器
@@ -34,7 +34,7 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
       canvas.removeEventListener('touchstart', onMouseDown)
 
       canvas.removeEventListener('mouseup', onMouseUp)
-      canvas.removeEventListener('mouseleave', onMouseUp)
+      canvas.removeEventListener('mouseleave', onMouseLeave)
       canvas.removeEventListener('touchend', onMouseUp)
     }
   }, [brushColor, canvasConfig])
@@ -58,13 +58,27 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
   // 鼠标抬起
   const onMouseUp = (event) => {
     const canvas = canvasRef.current
+
     if (event.button === 0) {
       canvas.removeEventListener('mousemove', handlePaint)
       canvas.removeEventListener('touchmove', handlePaint)
-    } else {
+    } else if (event.button === 2) {
       canvas.removeEventListener('mousemove', handleClear)
       canvas.removeEventListener('touchmove', handleClear)
+    } else {
+      canvas.removeEventListener('mousemove', handlePaint)
+      canvas.removeEventListener('touchmove', handlePaint)
     }
+  }
+
+  // 鼠标释放
+  const onMouseLeave = () => {
+    const canvas = canvasRef.current
+
+    canvas.removeEventListener('mousemove', handlePaint)
+    canvas.removeEventListener('touchmove', handlePaint)
+    canvas.removeEventListener('mousemove', handleClear)
+    canvas.removeEventListener('touchmove', handleClear)
   }
 
   // 获得绘制位置
