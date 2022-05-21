@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-03 15:54:37
- * @LastEditTime: 2022-05-13 15:18:55
+ * @LastEditTime: 2022-05-21 21:29:53
  * @Description: 画布组件
  */
 
@@ -28,6 +28,7 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
     // 解除事件监听器
     return () => {
       canvas.removeEventListener('click', handlePaint)
+      canvas.removeEventListener('contextmenu', handleClear)
 
       canvas.removeEventListener('mousedown', onMouseDown)
       canvas.removeEventListener('touchstart', onMouseDown)
@@ -86,8 +87,6 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
   const handlePaint = (event) => {
     event.preventDefault()
 
-    // console.log('handlePaint')
-
     const pixelPos = getPosition(event)
     // 获得网格位置
     const pixelX = Math.floor(pixelPos.x / canvasConfig.gridWidth)
@@ -99,16 +98,12 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
       paintInfo.set(pixelXY, brushColor)
       // 绘制像素
       drawPixel(pixelX, pixelY, brushColor)
-
-      // console.log('paintd')
     }
   }
 
   // 擦除事件处理
   const handleClear = (event) => {
     event.preventDefault()
-
-    console.log('handleClear')
 
     const pixelPos = getPosition(event)
     // 获得网格位置
@@ -117,11 +112,9 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
     const pixelXY = pixelX * 10000 + pixelY
     if (paintInfo.get(pixelXY) != undefined) {
       // 移除
-      paintInfo.delete(pixelX * 10000 + pixelY, brushColor)
+      paintInfo.delete(pixelXY, brushColor)
       // 清空像素
       drawPixel(pixelX, pixelY, canvasConfig.bgColor)
-
-      console.log('cleared')
     }
   }
 
@@ -140,7 +133,6 @@ const Canvas = ({ canvasRef, canvasConfig, brushColor, paintInfo }) => {
   }
   // canvas 初始化
   useEffect(() => {
-    // console.log('Cnavas Init')
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
 
