@@ -1,4 +1,4 @@
-name: FAVOR_DEPLOY
+name: gh-pages
 
 on:
   push:
