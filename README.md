@@ -1,11 +1,11 @@
 # 🔵 Pixxel
 
 > 优雅的像素画工具
-> 
+>
 > 使用 React、Next.js、Tailwindcss 开发
-> 
+>
 > [https://px.fzf404.top/](https://px.fzf404.top/)
-> 
+>
 > [https://fzf404.github.io/Pixxel/](https://fzf404.github.io/Pixxel/)
 
 ![show](show.jpeg)
@@ -20,6 +20,7 @@
 - [x] 移动端适配
 - [x] 保存/加载
 - [ ] 撤销操作
+- [ ] 发布 NPM 包
 - [ ] ...
 - [ ] 教程
 - [ ] 社区

@@ -1,3 +1,9 @@
+/*
+ * @Author: fzf404
+ * @Date: 2022-01-06 14:19:45
+ * @LastEditTime: 2022-07-19 20:42:42
+ * @Description: 首页
+ */
 import Canvas from '../components/canvas'
 import Color from '../components/color'
 import Control from '../components/control'
@@ -5,11 +11,7 @@ import Saver from '../components/saver'
 import { useState, useEffect, useRef } from 'react'
 import Layout from './layout'
 
-export default function Index() {
-  // 笔刷颜色
-  const [brushColor, setBrushColor] = useState('#f87171')
-  // 绘画路径记录
-  const [paintInfo, setPaintInfo] = useState(new Map())
+export default function Pixxel() {
   // canvas 标签
   const canvasRef = useRef(null)
   // canvas 设置
@@ -20,6 +22,12 @@ export default function Index() {
     gridWidth: 20,
     gridColor: '#eee',
   })
+  // 笔刷颜色
+  const [brushColor, setBrushColor] = useState('#f87171')
+  // 绘画路径
+  const [paintInfo, setPaintInfo] = useState(new Map())
+  // 绘画历史记录
+  const [paintHistory, setPaintHistory] = useState([])
 
   // 动态调整画布宽度
   useEffect(() => {
