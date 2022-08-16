@@ -4,7 +4,7 @@
 >
 > 使用 React、Next.js、Tailwindcss 开发
 >
-> [https://px.fzf404.top/](https://px.fzf404.top/)
+> [https://px.fzf404.art/](https://px.fzf404.art/)
 >
 > [https://fzf404.github.io/Pixxel/](https://fzf404.github.io/Pixxel/)
 
