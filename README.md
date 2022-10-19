@@ -4,15 +4,13 @@
 >
 > 使用 React、Next.js、Tailwindcss 开发
 >
-> [https://px.fzf404.art/](https://px.fzf404.art/)
->
-> [https://fzf404.github.io/Pixxel/](https://fzf404.github.io/Pixxel/)
+> [px.fzf404.art](https://px.fzf404.art/)
 
-![show](show.jpeg)
+[Pixxel](https://img.fzf404.art/Pixxel/show.webp)
 
 ## 🚀 更新记录
 
-> 如需要更多功能欢迎来提 issue ~
+> 更多功能欢迎来提 issue ~
 
 - [x] 基本绘制 (鼠标左键) / 擦除 (鼠标右键)
 - [x] 颜色选择
