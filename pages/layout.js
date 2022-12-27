@@ -1,7 +1,7 @@
 /*
  * @Author: fzf404
  * @Date: 2022-01-06 14:19:45
- * @LastEditTime: 2022-08-16 23:07:27
+ * @LastEditTime: 2022-12-28 01:33:36
  * @Description: 基础框架
  */
 
@@ -27,7 +27,6 @@ const Layout = ({ children }) => {
       <Head>
         <title>Pixxel</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.6" />
-        <meta name="description" content="一个优雅的像素画工具" />
         <script dangerouslySetInnerHTML={baiduAnalytics()} />
       </Head>
       {children}
