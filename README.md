@@ -1,4 +1,4 @@
-# 🔵 Pixxel
+# Pixxel
 
 > 优雅的像素画工具
 >
@@ -6,11 +6,11 @@
 >
 > [px.fzf404.art](https://px.fzf404.art/)
 
-[Pixxel](https://img.fzf404.art/Pixxel/show.webp)
+![Pixxel](https://img.fzf404.art/Pixxel/show.webp)
 
-## 🚀 更新记录
+## 更新记录
 
-> 更多功能欢迎来提 issue ~
+> 更多功能欢迎来提 issue
 
 - [x] 基本绘制 (鼠标左键) / 擦除 (鼠标右键)
 - [x] 颜色选择
