@@ -6,7 +6,7 @@
 >
 > [px.fzf404.art](https://px.fzf404.art/)
 
-![Pixxel](https://img.fzf404.art/Pixxel/show.webp)
+![Pixxel](https://img.fzf404.art/pixxel/show.webp)
 
 ## 更新记录
 
